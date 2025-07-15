@@ -13,10 +13,10 @@ function toggleMenu() {
 // Function to dynamically load the navbar
 function createNavBar() {
     const navList = [
-        ["Home", "index.html"],
-        ["Practices", "practice.html"],
-        ["Member Portal", "members.html"],
-        ["Register", "register.html"]
+        ["Home", "./index.html"],
+        ["Practices", "./practice.html"],
+        ["Member Portal", "./members.html"],
+        ["Register", "./register.html"]
     ]; // List of links in the navbar
 
     const nav = document.createElement("nav");
