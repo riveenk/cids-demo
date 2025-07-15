@@ -24,7 +24,7 @@ function createNavBar() {
     nav.innerHTML = `
     <div class="nav-container">
       <div class="top-row">
-      <a href="/index.html" style="color: #efefef; text-decoration: none;" class="site-title"><h1 id="mega"> Colombo Independent Debaters' Society</h1> <h1 id="mini">CIDS</h1></a>
+      <a href="./index.html" style="color: #efefef; text-decoration: none;" class="site-title"><h1 id="mega"> Colombo Independent Debaters' Society</h1> <h1 id="mini">CIDS</h1></a>
         <div class="menu-toggle" onclick="toggleMenu()"><i class="fa">&#9776;</i></div>
         <ul class="nav-links-desktop">
           ${navList.map(([label, link]) => `<li id = "${label}"><a href="${link}">${label}</a></li>`).join("")}
