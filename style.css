@@ -3,7 +3,7 @@
 body {
   padding: 0%;
   margin: 0%;
-  background-color: #EFEFEF;
+  background-color: #141414;
   font-family: 'Golos Text';
   line-height: 1.5em;
 }
@@ -537,6 +537,8 @@ body {
   font-size: x-large;
   font-weight: bold;
   line-height: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .members-top-bar button {
@@ -546,6 +548,14 @@ body {
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 10px;
+  border-radius: 4px;
+  border: none 0px;
+}
+
+.members-top-bar button:hover {
+  cursor: pointer;
+  background-color: #565656;
+  color: #EFEFEF;
 }
 
 .members-top-bar {
@@ -595,7 +605,12 @@ body {
     padding-right: 10px;
     padding-bottom: 10px;
     margin-top: auto;
-    } 
+    margin-bottom: 5px;
+  }
+  
+  .body-main {
+    padding-top: 78px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -636,6 +651,11 @@ body {
   scrollbar-width: 1px;
   height: 100%;
   max-height: 500px;
+  box-sizing: border-box;
+}
+
+.testimonies {
+  max-height: none;
 }
 
 .scroll img {
@@ -670,5 +690,9 @@ body {
 @media (max-width: 500px) {
   .index-block {
     padding: 30px;
+  }
+
+  .hero {
+    padding-top: 50px;
   }
 }
