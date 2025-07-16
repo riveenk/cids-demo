@@ -423,6 +423,7 @@ body {
 .quesBlock {
   margin-bottom: 20px;
   padding: 0%;
+  text-align: left;
 }
 
 .question{
@@ -529,6 +530,28 @@ body {
 
 .hiddenH2 {
   display: none;
+}
+
+.greeting {
+  color: #141414;
+  font-size: x-large;
+  font-weight: bold;
+  line-height: 100%;
+}
+
+.members-top-bar button {
+  background-color: #c5c5c5;
+  padding: 10px 20px;
+  height: fit-content;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+}
+
+.members-top-bar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 @media (max-width: 1320px) {
