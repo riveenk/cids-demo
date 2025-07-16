@@ -18,7 +18,7 @@
 <div class="body-main" id="bodyMain">
     <div class="web-body" id="webBody">
         member portal
-        <p id="Greeting"></p>
+        <p id="greeting"></p>
         <button id="logoutBtn">Logout</button>
     </div>
 </div>
@@ -39,9 +39,15 @@
         });
 
         async function logout() {
-            await supabaseClient.auth.signOut();
-            window.location.href = "./index.html";
+            const { error } = await supabaseClient.auth.signOut();
+
+            if (error) {
+                alert("Logout failed: " + error.message);
+            } else {
+                window.location.href = "./index.html";
+            }
         }
+
 
         document.getElementById("logoutBtn").addEventListener("click", logout);
     });
