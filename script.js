@@ -4,6 +4,16 @@ faSet.rel = "stylesheet";
 faSet.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css";
 document.head.appendChild(faSet);
 
+// definitions for Supabase
+const supabaseUrl = 'https://whmlpoxodlbtbfbitvxh.supabase.co'
+const supabaseKey = "sb_publishable_2JaIl9xJY-RVuQeNuuW-2Q_liqOwqhd"
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+// load supabase to every page
+const subB = document.createElement('script');
+subB.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+document.head.appendChild(subB)
+
 // Fuction to toggle between mobile navbar and desktop navbar
 function toggleMenu() {
   const nav = document.querySelector(".nav-links-mobile");
@@ -26,7 +36,6 @@ function createNavBar() {
     <div class="nav-container">
       <div class="top-row">
       <div style = "display: flex">
-      <img src="./media/logo.png" class="nav-img">
       <a href="./index.html" style="color: #efefef; text-decoration: none;" class="site-title"><p id="mega"> Colombo Independent Debaters' Society</p> <p id="mini">CIDS</p></a>
       </div>
         <div class="menu-toggle" onclick="toggleMenu()"><i class="fa">&#9776;</i></div>
@@ -44,7 +53,6 @@ function createNavBar() {
 }
 
 // Adjust the height of the Text Content box with entry
-
 function adjustTextContentHeight(textarea, form, startingLineHeight) {
   const lineHeight = 20;
 
@@ -61,6 +69,7 @@ function adjustTextContentHeight(textarea, form, startingLineHeight) {
   });
 }
 
+// dymanically load the footer
 function createFooter() {
   const footerLinks = [
     ["https://www.instagram.com/cids_srilanka/", "fa-brands", "f16d"],
@@ -79,6 +88,7 @@ function createFooter() {
   document.getElementById("bodyMain").insertAdjacentHTML('afterend', footer)
 }
 
+// function for the FAQ collapsible to work
 function faqManagement() {
   const faqButtons = document.getElementsByClassName("show-faq");
 
@@ -97,6 +107,7 @@ function faqManagement() {
   }
 }
 
+// manage a scrollable div that can hold anything really
 function scrollDiv(id, side, onRightEnd = null) {
   const element = document.getElementById(id);
   const scrollAmount = Math.max(window.innerWidth * 0.25, 200);
@@ -123,4 +134,32 @@ function scrollDiv(id, side, onRightEnd = null) {
 
 function onRightEnd() {
   alert("On the right");
+}
+
+// Function used to handle the login process
+async function login() {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const msg = document.getElementById('message');
+  msg.textContent = "";
+
+  const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+  if (error) {
+    msg.textContent = "Login failed: " + error.message;
+    msg.style.color = "red";
+  } else {
+    msg.textContent = "Login successful!";
+    msg.style.color = "lime";
+    window.location.href = "./members-portal.html";
+  }
+}
+
+async function logout() {
+  const { error } = await supabaseClient.auth.signOut();
+
+  if (error) {
+    alert("Logout failed: " + error.message);
+  } else {
+    window.location.href = "./index.html";
+  }
 }
