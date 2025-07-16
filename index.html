@@ -14,14 +14,15 @@
     <script>
         createNavBar();
     </script>
+    <style>
+    </style>
     <div class="body-main" id="bodyMain">
         <div class="index-block hero">
-            <img>
-            <h2>Colombo Independent Debaters' Society</h2>
+            <img src="./media/logo-full-black.png" style="width: 30%; min-width: 200px;">
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid, fugiat. Sapiente dolorum aut eaque
                 eius quae necessitatibus harum adipisci nam placeat hic, ab repellendus quis? Quis, autem? Unde,
                 accusamus ut!</p>
-            <a href="register.html"><button>Join Us</button></a>
+            <a href="register.html"><button>Interested?</button></a>
         </div>
 
         <div class="index-block description">
@@ -32,19 +33,19 @@
         </div>
 
         <div class="index-block">
-                        <h2 class="hiddenH">Our Highlights</h2>
+            <h2 class="hiddenH">Our Highlights</h2>
 
             <div class="scrollable">
-            <button id="imageLeft"> <i class="fa-solid fa-arrow-left"></i></button>
-                    <div class="scroll" id="images">
-                        <img class="us-pics" src="https://placehold.co/200x150">
-                        <img class="us-pics" src="https://placehold.co/200x150">
-                        <img class="us-pics" src="https://placehold.co/200x150">
-                        <img class="us-pics" src="https://placehold.co/200x150">
-                        <img class="us-pics" src="https://placehold.co/200x150">
-                    </div>
-                    <button id="imageRight"> <i class="fa-solid fa-arrow-right"></i> </button>
-                    </div>
+                <button id="imageLeft"> <i class="fa-solid fa-arrow-left"></i></button>
+                <div class="scroll" id="images">
+                    <img class="us-pics" src="https://placehold.co/200x150" id="sample-img">
+                    <img class="us-pics" src="https://placehold.co/200x150">
+                    <img class="us-pics" src="https://placehold.co/200x150">
+                    <img class="us-pics" src="https://placehold.co/200x150">
+                    <img class="us-pics" src="https://placehold.co/200x150">
+                </div>
+                <button id="imageRight"> <i class="fa-solid fa-arrow-right"></i> </button>
+            </div>
         </div>
 
         <div class="index-block faq">
@@ -143,7 +144,9 @@
                     <div class="testimony">
                         <i class="fa-solid fa-quote-left"></i>
                         <p class="thought">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium similique illo nam corporis ipsam totam praesentium obcaecati perferendis nesciunt reiciendis est, ullam aperiam voluptatem voluptatum vero sed? Recusandae, esse iure!
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium similique illo nam
+                            corporis ipsam totam praesentium obcaecati perferendis nesciunt reiciendis est, ullam
+                            aperiam voluptatem voluptatum vero sed? Recusandae, esse iure!
                         </p>
                         <p class="name">Levi Ackerman</p>
                         <p style="text-align: right; width: 100%;"><i class="fa-solid fa-quote-right"></i></p>
@@ -174,6 +177,8 @@
 
             let isOpen = false;
 
+            // Change the label of the FAQs button based on state
+
             showMoreBtn.addEventListener("click", () => {
                 isOpen = !isOpen;
 
@@ -186,14 +191,19 @@
                 }
             });
 
+            // Button functionality for scrollable elements
+
             document.getElementById("imageLeft").addEventListener("click", () => scrollDiv("images", "l"));
             document.getElementById("imageRight").addEventListener("click", () => scrollDiv("images", "r", () => {
-    console.log("Reached end of images.");
-  }));
+                console.log("Reached end of images.");
+            }));
             document.getElementById("testLeft").addEventListener("click", () => scrollDiv("testimonies", "l"));
             document.getElementById("testRight").addEventListener("click", () => scrollDiv("testimonies", "r"));
-
         });
+
+        window.addEventListener("resize", function () {
+            document.getElementById("images").style.height = document.getElementById("sample-img").style.height;
+        })
     </script>
 </body>
 
