@@ -6,25 +6,29 @@ document.head.appendChild(faSet);
 
 // Fuction to toggle between mobile navbar and desktop navbar
 function toggleMenu() {
-    const nav = document.querySelector(".nav-links-mobile");
-    nav.classList.toggle("show");
+  const nav = document.querySelector(".nav-links-mobile");
+  nav.classList.toggle("show");
 }
 
 // Function to dynamically load the navbar
 function createNavBar() {
-    const navList = [
-        ["Home", "./index.html"],
-        ["Practices", "./practice.html"],
-        ["Member Portal", "./members.html"],
-        ["Register", "./register.html"]
-    ]; // List of links in the navbar
+  const navList = [
+    ["Home", "./index.html"],
+    ["Practices", "./practice.html"],
+    ["Members Portal", "./members-portal.html"],
+    ["Contact Us", "./contact-us.html"],
+    ["Register", "./register.html"]
+  ]; // List of links in the navbar
 
-    const nav = document.createElement("nav");
-    nav.className = "custom-navbar";
-    nav.innerHTML = `
+  const nav = document.createElement("nav");
+  nav.className = "custom-navbar";
+  nav.innerHTML = `
     <div class="nav-container">
       <div class="top-row">
-      <a href="./index.html" style="color: #efefef; text-decoration: none;" class="site-title"><h1 id="mega"> Colombo Independent Debaters' Society</h1> <h1 id="mini">CIDS</h1></a>
+      <div style = "display: flex">
+      <img src="./media/logo.png" class="nav-img">
+      <a href="./index.html" style="color: #efefef; text-decoration: none;" class="site-title"><p id="mega"> Colombo Independent Debaters' Society</p> <p id="mini">CIDS</p></a>
+      </div>
         <div class="menu-toggle" onclick="toggleMenu()"><i class="fa">&#9776;</i></div>
         <ul class="nav-links-desktop">
           ${navList.map(([label, link]) => `<li id = "${label}"><a href="${link}">${label}</a></li>`).join("")}
@@ -36,5 +40,87 @@ function createNavBar() {
       </ul>
     </div>
   `;
-    document.body.insertBefore(nav, document.body.firstChild);
+  document.body.insertBefore(nav, document.body.firstChild);
+}
+
+// Adjust the height of the Text Content box with entry
+
+function adjustTextContentHeight(textarea, form, startingLineHeight) {
+  const lineHeight = 20;
+
+  textarea.addEventListener('input', function () {
+    this.rows = startingLineHeight;
+    const lines = Math.floor(this.scrollHeight / lineHeight);
+    this.rows = lines;
+  });
+
+  form.addEventListener('reset', function () {
+    setTimeout(() => {
+      textarea.rows = startingLineHeight;
+    }, 0);
+  });
+}
+
+function createFooter() {
+  const footerLinks = [
+    ["https://www.instagram.com/cids_srilanka/", "fa-brands", "f16d"],
+    ["mailto:cids.english@gmail.com", "fa-regular", "f0e0"],
+    ["https://www.linkedin.com/company/cids_sri_lanka/", "fa-brands", "f0e1"]
+  ]
+
+  const footer = `
+    <div class="footer" id="footer">
+      <div class="contact-buttons">
+          ${footerLinks.map(([link, type, icon]) => `<a href="${link}"><button><i class="${type}">&#x${icon};</i></button></a>`).join("")}
+      </div>
+      <p>Colombo Independent Debaters' Society © All Rights Reserved</p>
+    </div>
+  `
+  document.getElementById("bodyMain").insertAdjacentHTML('afterend', footer)
+}
+
+function faqManagement() {
+  const faqButtons = document.getElementsByClassName("show-faq");
+
+  for (let i = 0; i < faqButtons.length; i++) {
+    faqButtons[i].addEventListener("click", function () {
+      const answer = this.parentElement.nextElementSibling;
+
+      if (answer.style.maxHeight && answer.style.maxHeight !== "0px") {
+        answer.style.maxHeight = "0px";
+        this.textContent = "+";
+      } else {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        this.textContent = "–";
+      }
+    });
+  }
+}
+
+function scrollDiv(id, side, onRightEnd = null) {
+  const element = document.getElementById(id);
+  const scrollAmount = Math.max(window.innerWidth * 0.25, 200);
+
+  const maxScrollLeft = element.scrollWidth - element.clientWidth;
+  let newScrollLeft = element.scrollLeft;
+
+  if (side === "r") {
+    newScrollLeft = Math.min(element.scrollLeft + scrollAmount, maxScrollLeft);
+  } else if (side === "l") {
+    newScrollLeft = Math.max(element.scrollLeft - scrollAmount, 0);
+  }
+
+  element.scroll({
+    top: 0,
+    left: newScrollLeft,
+    behavior: "smooth",
+  });
+
+  if (onRightEnd && newScrollLeft >= maxScrollLeft) {
+    onRightEnd();
+  }
+}
+
+function onRightEnd() {
+  alert("On the right");
 }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="./media/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./script.js"></script>
+  <title>Colombo Independent Debaters' Society</title>
+</head>
+<body>
+  <script>
+    createNavBar(); // This must be defined in your external script
+  </script>
+
+  <style>
+    .memberReg input {
+      margin-bottom: 20px;
+    }
+
+    .formButtons {
+      margin-top: 30px;
+    }
+  </style>
+
+  <div class="body-main" id="bodyMain">
+    <div class="web-body" id="webBody">
+      <div class="memberReg" id="memberReg">
+        <h2 style="margin-bottom: 30px;">Login to CIDS</h2>
+
+        <label for="email">Your Email</label><br>
+        <input type="email" id="email" class="login-input" required placeholder="you@example.com"><br>
+
+        <label for="password">Password</label><br>
+        <input type="password" id="password" class="login-input" required placeholder="••••••••"><br>
+
+        <input type="checkbox" id="showPassword">
+        <label for="showPassword">Show Password</label><br>
+
+        <div class="formButtons">
+          <button type="button" class="formAction" onclick="login()">Login</button>
+          <button type="reset" class="formAction resetAction">Forgot Password</button>
+        </div>
+
+        <p id="message"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const supabaseUrl = 'https://whmlpoxodlbtbfbitvxh.supabase.co'
+    const supabaseKey = "sb_publishable_2JaIl9xJY-RVuQeNuuW-2Q_liqOwqhd"
+    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      createFooter();
+
+      supabaseClient.auth.getSession().then(({ data: { session } }) => {
+        if (session) window.location.href = "./members-portal.html";
+      });
+
+      document.getElementById("showPassword").addEventListener("change", function () {
+        const passwordField = document.getElementById("password");
+        passwordField.type = this.checked ? "text" : "password";
+      });
+    });
+
+    async function login() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const msg = document.getElementById('message');
+      msg.textContent = "";
+
+      const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        msg.textContent = "Login failed: " + error.message;
+        msg.style.color = "red";
+      } else {
+        msg.textContent = "Login successful!";
+        msg.style.color = "lime";
+        window.location.href = "./members-portal.html";
+      }
+    }
+  </script>
+</body>
+</html>

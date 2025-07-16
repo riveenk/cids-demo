@@ -3,7 +3,7 @@
 body {
   padding: 0%;
   margin: 0%;
-  background-color: #C5C5C5;
+  background-color: #EFEFEF;
   font-family: 'Golos Text';
   line-height: 1.5em;
 }
@@ -34,7 +34,6 @@ body {
   position: fixed;
   z-index: 999;
   box-sizing: border-box;
-
 }
 
 .nav-container {
@@ -52,6 +51,8 @@ body {
   margin-left: 10px;
   background-color: #141414;
   box-sizing: border-box;
+  max-width: 100vw;
+
 }
 
 
@@ -61,21 +62,26 @@ body {
   padding: 12px 12px;
   padding-left: 0px;
   white-space: nowrap;
-  flex: 1 1 auto;
   min-width: 0;
   box-sizing: border-box;
+  width: fit-content;
 }
 
-.site-title h1 {
-  margin: auto;
+.site-title p {
+  line-height: 100%;
 }
 
 #mega {
   display: block;
+  font-size: 30px;
+  margin: 0px;
+  width: fit-content;
 }
 
 #mini {
   display: none;
+  font-size: 30px;
+  margin: 0px;
 }
 
 #Register {
@@ -170,7 +176,9 @@ body {
 }
 
 .nav-img {
-  height: 50px;
+  height: 30px;
+  margin: 12px 0px;
+  margin-right: 12px;
 }
 
 .schoolReg {
@@ -305,6 +313,7 @@ body {
   color: #c5c5c5;
   text-align: center;
   padding: 30px;
+  box-sizing: border-box;
 }
 
 .footer button {
@@ -322,7 +331,207 @@ body {
   cursor: pointer;
 }
 
-@media (max-width: 1100px) {
+.index-block {
+  width: 100%;
+  margin: 0px;
+  padding: 60px;
+  box-sizing: border-box;
+}
+
+.index-block h2 {
+  padding: 0px;
+  padding-bottom: 10px;
+}
+
+.hero {
+  text-align: center;
+}
+
+.hero button {
+  background-color: #008080;
+  color: #efefef;
+  font-size: medium;
+  padding: 10px 18px;
+  border-radius: 4px;
+  border: 0px none;
+  margin-top: 15px;
+  margin-bottom: 33px;
+  line-height: 1.5em;
+}
+
+.hero button:hover {
+  cursor: pointer;
+  background-color: #565656;
+}
+
+.hero h2 {
+  font-size: 40px;
+  line-height: 1.5em;
+}
+
+.scrollable {
+  display: flex;
+}
+
+.scrollable button {
+  width: 5%;
+  min-height: 100%;
+  margin: 0px 10px;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 0px none;
+  font-size: x-large;
+}
+
+.scrollable button i {
+  color: #00693E;
+  font-weight: bold;
+}
+
+.scrollable button:hover {
+  cursor: pointer;
+}
+
+.scrollable button:hover i {
+  font-size: xx-large;
+}
+
+.scroll {
+  overflow: scroll;
+  max-width: 100vw;
+  display: flex;
+  gap: 20px;
+  width: 82.5%;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  height: 200px;
+}
+
+.scroll::-webkit-scrollbar { 
+    display: none;  
+}
+
+.scroll img {
+  height: 100%;
+}
+
+.faq {
+  background-color: #565656;
+  color: #EFEFEF;
+}
+
+.quesBlock {
+  margin-bottom: 20px;
+  padding: 0%;
+}
+
+.question{
+  background-color: #EFEFEF;
+  padding: 20px;
+  justify-content: space-between;
+  display: flex;
+}
+
+.question p {
+  width: fit-content;
+  color: #565656;
+}
+
+.question button {
+  background-color: transparent;
+  border: 0px none;
+  width: 56px;
+  font-size: x-large;
+  color: #008080;
+}
+
+.question button:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background-color: #C5C5C5;
+  color: #565656;
+  padding: 0 20px; 
+}
+
+.hidden {
+  display: none;
+}
+
+.more-faq-toggle {
+  display: block;
+  margin: 20px auto;
+  background-color: #008080;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  line-height: 1.5em;
+  font-size: medium;
+}
+
+.more-faq-toggle:hover {
+  background-color: #C5C5C5;
+  color: #565656;
+}
+
+.collapsible-section {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.collapsible-section.open {
+  max-height: 1000px;
+}
+
+
+.description {
+  background-color: #565656;
+  color: #EFEFEF;
+}
+
+.testimonies {
+  height: fit-content;
+  margin-bottom: 40px;
+}
+
+.testimony {
+  background-color: #C5C5C5;
+  padding: 10px 25px;
+  border-radius: 7px;
+  width: calc(50% - 10px);
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.testimony i {
+  font-size: 50px;
+  margin-top: 10px;
+  margin-bottom: 05px;
+  color: #565656;
+}
+
+.thought {
+  text-indent: 5px
+}
+
+.name {
+  font-size: small;
+  color: #565656;
+}
+
+.hiddenH2 {
+  display: none;
+}
+
+@media (max-width: 1320px) {
   .menu-toggle {
     display: block;
   }
@@ -343,15 +552,14 @@ body {
   }
 
   .body-main {
-    padding: 5px;
-    padding-top: 77px;
+    padding-top: 72px;
   }
   .web-body {
     padding-top: 10px;
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1320px) {
   .nav-links-mobile {
     display: none !important;
   }
@@ -367,7 +575,7 @@ body {
     } 
 }
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
   #mega {
   display: none;
 }
@@ -375,4 +583,69 @@ body {
 #mini {
   display: block;
 }
+
+.footer p {
+  font-size: medium;
+}
+
+.scrollable button {
+  display: none;
+}
+
+.scrollable button:hover {
+  cursor: pointer;
+}
+
+.scrollable button:hover i {
+  transform: scale(1.2);
+}
+
+.scrollable {
+  width: 100%;
+  min-height: 400px;
+}
+
+.scroll {
+  width: 100%;
+  display: grid;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  scrollbar-width: 1px;
+  height: 100%;
+  max-height: 500px;
+}
+
+.scroll img {
+  width: 100%;
+}
+
+.testimony {
+  width: 100%;
+  text-align: left;
+}
+
+.scroll::-webkit-scrollbar { 
+    display:block;  
+}
+
+.index-block {
+  text-align: center;
+}
+
+.hiddenH2 {
+  margin-bottom: 35px; 
+  margin-top: -10px;
+  display: block;
+}
+
+.name {
+  margin-top: 5 
+}
+
+}
+
+@media (max-width: 500px) {
+  .index-block {
+    padding: 30px;
+  }
 }
