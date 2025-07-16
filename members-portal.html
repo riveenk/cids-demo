@@ -6,24 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./media/favicon.ico">
     <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./script.js"></script>
     <title>Colombo Independent Debaters' Society</title>
 </head>
 
-<body class="h-full"></body>
-    <script>
-        createNavBar();
-    </script>
-    <div class="body-main" id="bodyMain">
-        <div class="web-body" id="webBody">
-            member portal
-        </div>
+<body></body>
+<script>
+    createNavBar();
+</script>
+<div class="body-main" id="bodyMain">
+    <div class="web-body" id="webBody">
+        member portal
+        <p id="Greeting"></p>
+        <button id="logoutBtn">Logout</button>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            createFooter();
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        createFooter();
+
+        const supabaseUrl = 'https://whmlpoxodlbtbfbitvxh.supabase.co'
+        const supabaseKey = "sb_publishable_2JaIl9xJY-RVuQeNuuW-2Q_liqOwqhd"
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+        supabaseClient.auth.getSession().then(({ data: { session } }) => {
+            if (!session) {
+                window.location.href = "./login.html";
+            } else {
+                document.getElementById('greeting').textContent = `Welcome, ${session.user.email}`;
+            }
         });
-    </script>
+
+        async function logout() {
+            await supabaseClient.auth.signOut();
+            window.location.href = "./index.html";
+        }
+
+        document.getElementById("logoutBtn").addEventListener("click", logout);
+    });
+</script>
 </body>
 
 </html>
