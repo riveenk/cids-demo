@@ -33,24 +33,31 @@
                 <p style="color: rgb(201, 11, 11); margin-bottom: 25px;">* Indicates Required Question</p>
 
                 <label for="fullName">Full Name<span style="color: rgb(201, 11, 11);"> *</span></label><br>
-                <input type="text" id="fullName" name="Full Name" required placeholder="Levi Ackerman"><br>
+                <input type="text" id="fullName" name="Full Name" required placeholder="John Doe"><br>
+
                 <label for="prefName">Preferred Name<span style="color: rgb(201, 11, 11);"> *</span></label><br>
-                <input type="text" id="prefName" name="Preferred Name" required placeholder="Levi"><br>
+                <input type="text" id="prefName" name="Preferred Name" required placeholder="Johnny"><br>
+
                 <label for="zoomName">Zoom User ID<span style="color: rgb(201, 11, 11);"> *</span></label><br>
                 <p class="subtext">You can only join meetings using this name</p>
-                <input type="text" id="zoomName" name="Zoom ID" required placeholder="Captain Levi"><br>
+                <input type="text" id="zoomName" name="Zoom ID" required placeholder="Johnny"><br>
+
                 <label for="dob">Date of Birth<span style="color: rgb(201, 11, 11);"> *</span></label><br>
                 <input type="date" id="dob" name="Date of Birth" required><br>
+
                 <label for="mobNum">Mobile Number (WhatsApp Enabled)<span style="color: rgb(201, 11, 11);">
                         *</span></label><br>
                 <p class="subtext">Please include the country code</p>
                 <input type="tel" id="mobNum" name="Mobile Number" placeholder="+94 777123456"
                     pattern="^\+[1-9]{1,3} [0-9]{3,14}$" required><br>
+
                 <label for="email">Email Address<span style="color: rgb(201, 11, 11);"> *</span></label><br>
-                <input type="email" id="email" name="Email Address" required placeholder="levi.ack@example.com"><br>
+                <input type="email" id="email" name="Email Address" required placeholder="johnny.doe@example.com"><br>
+
                 <label for="address">Home Address</label><br>
                 <textarea form="memberReg" name="Home Address" id="address" rows="1" style="resize: none;"
-                    placeholder="The Underground, Wall Sina"></textarea><br>
+                    placeholder="123, Random Road, Some City"></textarea><br>
+
                 <label for="Country">Country<span style="color: rgb(201, 11, 11);"> *</span></label><br>
                 <select id="Country" name="Country" required>
                     <option value="AF">Afghanistan</option>
@@ -120,7 +127,6 @@
                     <option value="EC">Ecuador</option>
                     <option value="EG">Egypt</option>
                     <option value="SV">El Salvador</option>
-                    <option value="" disabled selected hidden>Eldia</option>
                     <option value="GQ">Equatorial Guinea</option>
                     <option value="ER">Eritrea</option>
                     <option value="EE">Estonia</option>
@@ -223,7 +229,7 @@
                     <option value="OM">Oman</option>
                     <option value="PK">Pakistan</option>
                     <option value="PW">Palau</option>
-                    <option value="PS">Palestinian Territory, Occupied</option>
+                    <option value="PS">Palestine</option>
                     <option value="PA">Panama</option>
                     <option value="PG">Papua New Guinea</option>
                     <option value="PY">Paraguay</option>
@@ -263,7 +269,7 @@
                     <option value="GS">South Georgia and the South Sandwich Islands</option>
                     <option value="SS">South Sudan</option>
                     <option value="ES">Spain</option>
-                    <option value="LK">Sri Lanka</option>
+                    <option value="LK" selected >Sri Lanka</option>
                     <option value="SD">Sudan</option>
                     <option value="SR">Suriname</option>
                     <option value="SJ">Svalbard and Jan Mayen</option>

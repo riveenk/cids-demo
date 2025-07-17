@@ -8,6 +8,10 @@ body {
   line-height: 1.5em;
 }
 
+h2 {
+  line-height: 1.5em;
+}
+
 .body-main {
   padding: 0%;
   padding-top: 83px;
@@ -22,9 +26,8 @@ body {
   width: 50%;
   margin-left: auto;
   margin-right: auto  ;
-  padding-bottom: 20px;
+  padding-bottom: 70px;
   margin-top: 50px;
-  margin-bottom: 50px;
 }
 
 .custom-navbar {
@@ -73,14 +76,14 @@ body {
 
 #mega {
   display: block;
-  font-size: 30px;
+  font-size: 25px;
   margin: 0px;
   width: fit-content;
 }
 
 #mini {
   display: none;
-  font-size: 30px;
+  font-size: 25px;
   margin: 0px;
 }
 
@@ -492,7 +495,6 @@ body {
   max-height: 1000px;
 }
 
-
 .description {
   background-color: #565656;
   color: #EFEFEF;
@@ -562,6 +564,78 @@ body {
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+
+.preview {
+  text-align: center;
+  padding: 20px;
+  transition: 0.2s ease-in;
+}
+
+.preview.show {
+  padding: 60px;
+}
+
+.preview:hover {
+  color: #565656;
+  background-color: #C5C5C5;
+  cursor: pointer;
+}
+
+.preview-text {
+  display: none;
+  height: 0px;
+  overflow: hidden;
+  transition: 0.2s ease-in;
+  text-align: left;
+}
+
+.preview h2 {
+  padding: 0px;
+}
+
+.preview-text figure {
+  width: 48%;
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+.preview-text figure img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.preview-text figcaption {
+  color: #c5c5c5;
+  font-size: x-small;
+  text-align: left;
+  line-height: normal;
+}
+
+.preview-text p {
+  width: 48%;
+  box-sizing: border-box;
+}
+
+.preview:hover figcaption {
+  color: #565656;
+}
+
+.preview-click {
+  padding-bottom: 0%;
+}
+
+.preview-click.show {
+  margin-bottom: 40px;
+  margin-top: 0px;
+}
+
+.preview-text.show {
+   display: flex;
+   flex-wrap: wrap;
+   height: fit-content;
+   overflow: hidden;
+   justify-content: space-between;
 }
 
 @media (max-width: 1320px) {
@@ -683,6 +757,23 @@ body {
 
 .name {
   margin-top: 5 
+}
+
+.preview-text.show {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.preview-text figure {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.preview-text p {
+  width: 100%;
+  margin-top: 40px;
 }
 
 }

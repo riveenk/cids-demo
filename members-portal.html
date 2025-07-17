@@ -17,38 +17,24 @@
 </script>
 <div class="body-main" id="bodyMain">
     <div class="web-body" id="webBody">
-        member portal
-        <p id="greeting"></p>
-        <button id="logoutBtn">Logout</button>
+        <div class="members-top-bar">
+            <p class="greeting" id="greeting"></p>
+            <button id="logoutBtn">Logout</button>
+        </div>
     </div>
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         createFooter();
 
-        const supabaseUrl = 'https://whmlpoxodlbtbfbitvxh.supabase.co'
-        const supabaseKey = "sb_publishable_2JaIl9xJY-RVuQeNuuW-2Q_liqOwqhd"
-        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-
         supabaseClient.auth.getSession().then(({ data: { session } }) => {
             if (!session) {
                 window.location.href = "./login.html";
             } else {
-                document.getElementById('greeting').textContent = `Welcome, ${session.user.email}`;
+                document.getElementById('greeting').textContent = `Welcome, ${session.user.email.substring(0, 14) + "..."}`;
             }
         });
-
-        async function logout() {
-            const { error } = await supabaseClient.auth.signOut();
-
-            if (error) {
-                alert("Logout failed: " + error.message);
-            } else {
-                window.location.href = "./index.html";
-            }
-        }
-
-
+        
         document.getElementById("logoutBtn").addEventListener("click", logout);
     });
 </script>
