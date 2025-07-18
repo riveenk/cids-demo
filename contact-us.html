@@ -14,14 +14,41 @@
     <script>
         createNavBar();
     </script>
-    <div class="body-main" id="bodyMain">
-        <div class="web-body" id="webBody">
-            contact us
+    <style>
+        .contactUs button {
+            background-color: #008080;
+            border: #008080 0px none;
+            padding: 15px 20px;
+            border-radius: 4px;
+            color: #efefef;
+            width: 100%;
+            font-family: "Golos Text";
+            font-size: small;
+        }
+    </style>
+    <div class="blurMain" id="blurMain">
+        <div class="body-main" id="bodyMain">
+            <div class="web-body" id="webBody">
+                <form class="contactUs" id="contactUs" action="https://formspree.io/f/mgvzvrqd" method="POST">
+                    <h2>Send us a Message</h2>
+                    <label for="name">Your Name</label> <br>
+                    <input name="name" required><br>
+                    <label for="responseMethod">Email Address or Phone Number</label><br>
+                    <p>Phone number must be WhatsApp enabled and include the country code</p>
+                    <input name="Respond via" required><br>
+                    <label for="subject">Subject</label><br>
+                    <input name="Subject" required><br>
+                    <label for="message">Your Message</label><br>
+                    <textarea name="Message" id="message" style="resize: none;" rows="8" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
         </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             createFooter();
+            adjustTextContentHeight(document.getElementById("message"), 3);
         });
     </script>
 </body>

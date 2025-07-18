@@ -18,6 +18,7 @@ document.head.appendChild(subB)
 function toggleMenu() {
   const nav = document.querySelector(".nav-links-mobile");
   nav.classList.toggle("show");
+  document.getElementById("blurMain").classList.toggle("blur");
 }
 
 // Function to dynamically load the navbar
@@ -53,7 +54,7 @@ function createNavBar() {
 }
 
 // Adjust the height of the Text Content box with entry
-function adjustTextContentHeight(textarea, form, startingLineHeight) {
+function adjustTextContentHeight(textarea, startingLineHeight, form = null) {
   const lineHeight = 20;
 
   textarea.addEventListener('input', function () {
@@ -62,11 +63,12 @@ function adjustTextContentHeight(textarea, form, startingLineHeight) {
     this.rows = lines;
   });
 
+  if (form) {
   form.addEventListener('reset', function () {
     setTimeout(() => {
       textarea.rows = startingLineHeight;
     }, 0);
-  });
+  });}
 }
 
 // dymanically load the footer

@@ -29,27 +29,28 @@
       margin-top: 0px;
     }
   </style>
+  <div class="blurMain" id="blurMain">
+    <div class="body-main" id="bodyMain">
+      <div class="web-body" id="webBody">
+        <div class="memberReg" id="memberReg">
+          <h2 style="margin-bottom: 30px;">Login to CIDS</h2>
 
-  <div class="body-main" id="bodyMain">
-    <div class="web-body" id="webBody">
-      <div class="memberReg" id="memberReg">
-        <h2 style="margin-bottom: 30px;">Login to CIDS</h2>
+          <label for="email">Your Email</label><br>
+          <input type="email" id="email" class="login-input" required placeholder="levi.ack@example.com"><br>
 
-        <label for="email">Your Email</label><br>
-        <input type="email" id="email" class="login-input" required placeholder="levi.ack@example.com"><br>
+          <label for="password">Password</label><br>
+          <input type="password" id="password" class="login-input" required placeholder="••••••••"><br>
 
-        <label for="password">Password</label><br>
-        <input type="password" id="password" class="login-input" required placeholder="••••••••"><br>
+          <input type="checkbox" id="showPassword">
+          <label for="showPassword">Show Password</label><br>
 
-        <input type="checkbox" id="showPassword">
-        <label for="showPassword">Show Password</label><br>
+          <div class="formButtons">
+            <button type="button" class="formAction" onclick="login()">Login</button>
+            <button type="reset" id="reset" class="formAction resetAction">Forgot Password</button>
+          </div>
 
-        <div class="formButtons">
-          <button type="button" class="formAction" onclick="login()">Login</button>
-          <button type="reset" id="reset" class="formAction resetAction">Forgot Password</button>
+          <p id="message"></p>
         </div>
-
-        <p id="message"></p>
       </div>
     </div>
   </div>

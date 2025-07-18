@@ -12,6 +12,12 @@ h2 {
   line-height: 1.5em;
 }
 
+button,
+a,
+i {
+  transition: 0.4s ease;
+}
+
 .body-main {
   padding: 0%;
   padding-top: 83px;
@@ -25,7 +31,7 @@ h2 {
   box-sizing: border-box;
   width: 50%;
   margin-left: auto;
-  margin-right: auto  ;
+  margin-right: auto;
   padding-bottom: 70px;
   margin-top: 50px;
 }
@@ -131,6 +137,7 @@ h2 {
 .nav-links-desktop li a {
   text-decoration: none;
   color: #EFEFEF;
+  border-radius: 4px;
   padding: 8px 12px;
   display: block;
 }
@@ -138,19 +145,18 @@ h2 {
 .nav-links-mobile li a {
   text-decoration: none;
   color: #EFEFEF;
+  border-radius: 4px;
   padding: 8px 12px;
   display: block;
 }
 
 .nav-links-desktop li:hover a {
   background-color: #565656;
-  border-radius: 4px;
   color: #EFEFEF;
 }
 
 .nav-links-mobile li:hover a {
   background-color: #c5c5c5;
-  border-radius: 4px;
   color: #141414;
 }
 
@@ -219,7 +225,7 @@ h2 {
 .memberReg {
   border: #c5c5c5 2px solid;
   border-radius: 10px;
-  padding: 35px 30px;
+  padding: 40px 35px;
   margin-top: 20px;
   box-sizing: border-box;
 }
@@ -228,7 +234,9 @@ h2 {
   font-size: small;
 }
 
-.memberReg input:not([type="checkbox"]):not([type="radio"]), .memberReg textarea, .memberReg select{
+.memberReg input:not([type="checkbox"]):not([type="radio"]),
+.memberReg textarea,
+.memberReg select {
   width: 100%;
   border: 0px;
   background-color: transparent;
@@ -278,7 +286,7 @@ h2 {
 .checkbox {
   max-width: none;
   width: fit-content;
-  
+
 }
 
 .formButtons {
@@ -289,11 +297,11 @@ h2 {
 }
 
 .formAction {
-  background-color: #008080; 
-  border: #008080 0px none; 
-  padding:15px 20px; 
-  border-radius: 4px; 
-  color: #efefef; 
+  background-color: #008080;
+  border: #008080 0px none;
+  padding: 15px 20px;
+  border-radius: 4px;
+  color: #efefef;
   width: 49%;
   font-family: "Golos Text";
   font-size: small;
@@ -410,8 +418,8 @@ h2 {
   height: 200px;
 }
 
-.scroll::-webkit-scrollbar { 
-    display: none;  
+.scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .scroll img {
@@ -429,7 +437,7 @@ h2 {
   text-align: left;
 }
 
-.question{
+.question {
   background-color: #EFEFEF;
   padding: 20px;
   justify-content: space-between;
@@ -460,7 +468,7 @@ h2 {
   transition: max-height 0.3s ease;
   background-color: #C5C5C5;
   color: #565656;
-  padding: 0 20px; 
+  padding: 0 20px;
 }
 
 .hidden {
@@ -512,6 +520,7 @@ h2 {
   width: calc(50% - 10px);
   box-sizing: border-box;
   height: 100%;
+  min-width: 35vw;
 }
 
 .testimony i {
@@ -541,10 +550,15 @@ h2 {
   line-height: 100%;
   margin-top: auto;
   margin-bottom: auto;
+  max-width: 70vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em;
 }
 
 .members-top-bar button {
-  background-color: #c5c5c5;
+  background-color: #565656;
+  color: #efefef;
   padding: 10px 20px;
   height: fit-content;
   margin-top: auto;
@@ -556,7 +570,7 @@ h2 {
 
 .members-top-bar button:hover {
   cursor: pointer;
-  background-color: #565656;
+  background-color: #141414;
   color: #EFEFEF;
 }
 
@@ -564,12 +578,14 @@ h2 {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 .preview {
   text-align: center;
   padding: 20px;
-  transition: 0.2s ease-in;
+  transition: 0.3s ease;
 }
 
 .preview.show {
@@ -586,7 +602,7 @@ h2 {
   display: none;
   height: 0px;
   overflow: hidden;
-  transition: 0.2s ease-in;
+  transition: 0.3s ease;
   text-align: left;
 }
 
@@ -623,22 +639,117 @@ h2 {
 
 .preview-click {
   padding-bottom: 0%;
+  transition: font-size 0.3 ease;
 }
 
 .preview-click.show {
   margin-bottom: 40px;
   margin-top: 0px;
+  font-size: medium;
 }
 
 .preview-text.show {
-   display: flex;
-   flex-wrap: wrap;
-   height: fit-content;
-   overflow: hidden;
-   justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  overflow: hidden;
+  justify-content: space-between;
 }
 
-@media (max-width: 1320px) {
+.blurMain {
+  opacity: 1;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.blurMain.blur {
+  opacity: 0.1;
+  filter: blur(4px);
+}
+
+.contactUs {
+  border: #c5c5c5 2px solid;
+  border-radius: 10px;
+  padding: 40px 35px;
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+.contactUs h2 {
+  margin-top: 0px;
+  margin-bottom: 35px;
+}
+
+.contactUs p {
+  color: #565656;
+  font-size: small;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.contactUs label {
+  font-size: small;
+}
+
+.contactUs input,
+.contactUs textarea {
+  width: 100%;
+  border: 0px;
+  background-color: transparent;
+  border-bottom: #C5C5C5 1px solid;
+  margin-top: 15px;
+  margin-bottom: 40px;
+  font-family: "Golos Text";
+  font-size: medium;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.contactUs button:hover {
+  cursor: pointer;
+  background-color: #565656;
+}
+
+.dashboard-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dashboard {
+  width: fit-content;
+  border: #00693E 2px dashed;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  width: 80vw;
+  box-sizing: border-box;
+}
+
+.buttons-holder {
+  width: 50%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.buttons-holder button {
+  background-color: #c5c5c5;
+  border: 0px none;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+.buttons-holder a {
+    min-width: 90px;
+  width: 25%;
+}
+
+.calendar-holder {
+  width: 50%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1250px) {
   .menu-toggle {
     display: block;
   }
@@ -661,12 +772,13 @@ h2 {
   .body-main {
     padding-top: 72px;
   }
+
   .web-body {
     padding-top: 10px;
   }
 }
 
-@media (min-width: 1320px) {
+@media (min-width: 1250px) {
   .nav-links-mobile {
     display: none !important;
   }
@@ -681,101 +793,120 @@ h2 {
     margin-top: auto;
     margin-bottom: 5px;
   }
-  
+
   .body-main {
-    padding-top: 78px;
+    padding-top: 73px;
+  }
+
+    .buttons-holder {
+    width: 100%;
+    box-sizing: border-box;
+    }
+
+  .calendar-holder {
+    width: 100%;
+    box-sizing: border-box;
+    }
+
+  .dashboard {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+    margin-top: 0px;
   }
 }
 
 @media (max-width: 768px) {
   #mega {
-  display: none;
-}
+    display: none;
+  }
 
-#mini {
-  display: block;
-}
+  #mini {
+    display: block;
+  }
 
-.footer p {
-  font-size: medium;
-}
+  .footer p {
+    font-size: medium;
+  }
 
-.scrollable button {
-  display: none;
-}
+  .scrollable button {
+    display: none;
+  }
 
-.scrollable button:hover {
-  cursor: pointer;
-}
+  .scrollable button:hover {
+    cursor: pointer;
+  }
 
-.scrollable button:hover i {
-  transform: scale(1.2);
-}
+  .scrollable button:hover i {
+    transform: scale(1.2);
+  }
 
-.scrollable {
-  width: 100%;
-  min-height: 400px;
-}
+  .scrollable {
+    width: 100%;
+    min-height: 400px;
+  }
 
-.scroll {
-  width: 100%;
-  display: grid;
-  flex-wrap: wrap;
-  overflow-y: scroll;
-  scrollbar-width: 1px;
-  height: 100%;
-  max-height: 500px;
-  box-sizing: border-box;
-}
+  .scroll {
+    width: 100%;
+    display: grid;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    scrollbar-width: 1px;
+    height: 100%;
+    max-height: 500px;
+    box-sizing: border-box;
+  }
 
-.testimonies {
-  max-height: none;
-}
+  .testimonies {
+    max-height: none;
+  }
 
-.scroll img {
-  width: 100%;
-}
+  .scroll img {
+    width: 100%;
+  }
 
-.testimony {
-  width: 100%;
-  text-align: left;
-}
+  .testimony {
+    width: 100%;
+    text-align: left;
+  }
 
-.scroll::-webkit-scrollbar { 
-    display:block;  
-}
+  .scroll::-webkit-scrollbar {
+    display: block;
+  }
 
-.index-block {
-  text-align: center;
-}
+  .index-block {
+    text-align: center;
+  }
 
-.hiddenH2 {
-  margin-bottom: 35px; 
-  margin-top: -10px;
-  display: block;
-}
+  .hiddenH2 {
+    margin-bottom: 35px;
+    margin-top: -10px;
+    display: block;
+  }
 
-.name {
-  margin-top: 5 
-}
+  .name {
+    margin-top: 5
+  }
 
-.preview-text.show {
-  display: block;
-  text-align: center;
-  width: 100%;
-}
+  .preview-text.show {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
 
-.preview-text figure {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .preview-text figure {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.preview-text p {
-  width: 100%;
-  margin-top: 40px;
-}
-
+  .preview-text p {
+    width: 100%;
+    margin-top: 40px;
+  }
 }
 
 @media (max-width: 500px) {
