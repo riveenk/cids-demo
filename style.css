@@ -259,6 +259,10 @@ i {
   margin-top: 15px;
 }
 
+.checks {
+  margin-bottom: 40px;
+}
+
 .checks label {
   margin-bottom: 40px;
 }
@@ -294,6 +298,7 @@ i {
   display: flex;
   flex-wrap: wrap;
   gap: 2%;
+  margin-top: 40px;
 }
 
 .formAction {
