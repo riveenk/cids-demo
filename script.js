@@ -28,7 +28,7 @@ function createNavBar() {
     ["Practices", "./practice.html"],
     ["Members Portal", "./members-portal.html"],
     ["Contact Us", "./contact-us.html"],
-    ["Register", "./register.html"]
+    ["Register", "./join-us.html"]
   ]; // List of links in the navbar
 
   const nav = document.createElement("nav");
